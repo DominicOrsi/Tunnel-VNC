@@ -1,10 +1,11 @@
 '''
-TODO: Fully comment out code, finished error checking, and create signed EXE
+TODO: Fully comment out code, finish error checking, and create signed EXE
 '''
 
 import sys, os, tempfile, tunnel
 from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QPushButton, QFormLayout, QVBoxLayout, QWidget, QSpacerItem, QSizePolicy, QCheckBox, QMessageBox
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
+from PyQt6.QtGui import QIcon
 
 class WorkerThread(QThread):
     finished = pyqtSignal()
@@ -43,6 +44,10 @@ class WorkerThread(QThread):
 class MyWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+
+        # Set application icon
+        icon = QIcon("file.ico")
+        self.setWindowIcon(icon)
 
         # Set window title
         self.setWindowTitle("Connect to Instance")
