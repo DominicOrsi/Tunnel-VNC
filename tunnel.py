@@ -6,13 +6,10 @@ Date: 09/29/23
 By: Dominic Orsi
 '''
 
-import sshtunnel
-import paramiko
-import subprocess
-import os
+import sshtunnel, paramiko, subprocess, os
 
 # Create logger
-log = sshtunnel.create_logger(loglevel='DEBUG')
+#log = sshtunnel.create_logger(loglevel='DEBUG')
 
 '''
 Description: 
@@ -26,11 +23,11 @@ def createTunnel(remote_host, ssh_pkey_path):
     ssh_private_key=ssh_pkey_path,
     remote_bind_address=('localhost', 5901),
     local_bind_address=('0.0.0.0', 59000),
-    logger=log,
+    #logger=log,
     )
 
     ssh = paramiko.SSHClient()
-    ssh.load_host_keys(os.path.expanduser('~\\.ssh\known_hosts'))
+    ssh.load_host_keys(os.path.expanduser('~\\.ssh\\known_hosts'))
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.save_host_keys(os.path.expanduser('~\\.ssh\\known_hosts'))
 
@@ -42,7 +39,7 @@ Input:
 Output:
 '''
 def startServer(server):
-    print('Server Starting')
+    #print('Server Starting')
     server.start()
 
 
@@ -64,5 +61,5 @@ def startTigerVNC(tiger_vnc_path):
     subprocess.run(powershell_command, check=True)
 
 def stopServer(server):
-    print('Server connection closing')
+    #print('Server connection closing')
     server.close()
