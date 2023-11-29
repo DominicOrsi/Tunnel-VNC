@@ -1,0 +1,2 @@
+To use shiv: python -m shiv --compressed -c gui -o Tunnel-GUI.pyw
+This command creates the Tunnel-GUI.pyw file. Size is about 68,107 KB (bigger than one would like)
